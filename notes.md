@@ -6,4 +6,8 @@ if you want to select multiple columns, they must be separated by commas.
 select column1, column2, ...
 from table_name;
 ```
-
+to select all columns in a table, use * instead of manually typing out all column names.
+```sql
+select *
+from table_name;
+```

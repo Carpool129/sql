@@ -11,3 +11,13 @@ to select all columns in a table, use * instead of manually typing out all colum
 select *
 from table_name;
 ```
+the **where** clause can be combined with the select statement to output rows that meet certain conditions. 
+```sql
+select column1, column2, ...
+from table name
+where condition1
+and condition2
+or condition3;
+```
+| logical operators | definition |
+|---|---|

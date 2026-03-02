@@ -46,3 +46,12 @@ from table_name
 where condition(s)
 order by column1 asc, column2 desc;
 ```
+you can limit the output using **limit**. you can also control the results returned by using **offset**
+```sql
+select * from table
+order by columnn1 desc
+offset 10 -- skips the first 10, so starting on the 11th row
+limit 5; -- fetches the next 5 rows
+```
+|aggregate functions | definitions |
+|---|---|

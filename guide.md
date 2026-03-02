@@ -55,3 +55,9 @@ limit 5; -- fetches the next 5 rows
 ```
 |aggregate functions | definitions |
 |---|---|
+|sum| adds all the values in a column|
+|min| returns the lowest value in a column|
+|max| returns the highest value in a column|
+|avg| calculates the average of a column|
+|count| counts how many rows are in a column|
+the **group** by command tells the database to separate the data into groups, which can then be aggregated independently. the syntax is the same as **order**.

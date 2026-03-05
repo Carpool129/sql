@@ -53,6 +53,7 @@ order by columnn1 desc
 offset 10 -- skips the first 10, so starting on the 11th row
 limit 5; -- fetches the next 5 rows
 ```
+### beginner
 |aggregate functions | definitions |
 |---|---|
 |sum| adds all the values in a column|
@@ -61,4 +62,4 @@ limit 5; -- fetches the next 5 rows
 |avg| calculates the average of a column|
 |count| counts how many rows are in a column|  
 
-the **group** by command tells the database to separate the data into groups, which can then be aggregated independently. the syntax is the same as **order**.
+the **group by** command tells the database to separate the data into groups, which can then be aggregated independently. the syntax is the same as **order**. while **order by** is not used to get rid of duplicates, it does allow you to collapse multiple rows with the same values into a single row. 

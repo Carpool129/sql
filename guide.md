@@ -54,6 +54,7 @@ offset 10 -- skips the first 10, so starting on the 11th row
 limit 5; -- fetches the next 5 rows
 ```
 ### beginner
+to aggregate means to collect, to gather into a mass or whole.
 |aggregate functions | definitions |
 |---|---|
 |sum| adds all the values in a column|

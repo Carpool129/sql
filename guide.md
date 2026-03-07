@@ -73,3 +73,5 @@ group by column1, date;
 |max| returns the highest value in a column|
 |avg| calculates the average of a column|
 |count| counts how many rows are in a column|  
+
+you cannot use aggregate functions in with **where**. instead, use **having** to filter data based on values from aggregate functions. 

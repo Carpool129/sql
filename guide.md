@@ -1,4 +1,6 @@
 ### newbie
+---
+#### select & from
 the most basic select query contains two essential sql keywords: `select` and `from`.  
 `select` tells the database what data you want to output and is followed by the specific names of the columns. `from` tells the database which specific table contains the data we want to output.  
 if you want to select multiple columns, they must be separated by commas. 
@@ -95,7 +97,7 @@ you can transform raw values with math expressions
 |`+`| adds two numbers|
 |`-`| subtracts one value from another|
 |`*`| multiplies two numbers|
-|`/`| divides the first number by the second|
+|`/`| divides the first number by the second as integer division|
 |`%`| returns the remainder after division of the numbers|
 |`^`| exponent|
 
@@ -108,7 +110,7 @@ you can transform raw values with math expressions
 |`power()`| raises a number to a specified power|
 |`mod()`| same as `%`|
 
-
+`/` discards the remainder from the output
 
 
 

@@ -38,7 +38,7 @@ or condition3;
 |`not`| displays a record if the condition(s) is/are false|
 |`between`| selects values within a given range, paired with **and**, inclusive|
 |`in`| allows us to avoid having to use multiple **or** conditions|
-|`like, not like`| allows filtering of rows based on whether a string matches a certain pattern. often accompanied by `%` or `_`. `%` can represent 0 or multiple characters, `_` represents a single character|
+|`like`, `not like`| allows filtering of rows based on whether a string matches a certain pattern. often accompanied by `%` or `_`. `%` can represent 0 or multiple characters, `_` represents a single character|
 ```sql
 --- operators examples
 select * from table
@@ -89,9 +89,27 @@ you can use `distinct` with aggregate functions.
 select count(distinct column1)
 from table;
 ```
-you can transform raw values with math expressions
+you can transform raw values with math expressions  
 |arithmetic operators | definitions|
+|---|---|
 |`+`| adds two numbers|
+|`-`| subtracts one value from another|
+|`*`| multiplies two numbers|
+|`/`| divides the first number by the second|
+|`%`| returns the remainder after division of the numbers|
+|`^`| exponent|
+
+|mathematical functions| definitions|
+|---|---|
+|`abs()`| absolute value of a number|
+|`round()`| rounds a number to a specified number of decimal places after a comma|
+|`ceil()`| rounds a number up|
+|`floor()`| rounds a number down|
+|`power()`| raises a number to a specified power|
+|`mod()`| same as `%`|
+
+
+
 
 
 

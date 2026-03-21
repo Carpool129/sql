@@ -20,7 +20,7 @@ from table;
 -- returns only distinct values from column1 and remove duplicate values
 ```
 if you include more than 1 column in a `select distinct` clause, the output would contain all the unique pairs between those columns. you only need one `distinct` in the beginning for multiple columns.   
-
+### `where`
 the `where` clause can be combined with the select statement to output rows that meet certain conditions. 
 ```sql
 select column1, column2, ...
@@ -29,6 +29,7 @@ where condition1
 and condition2
 or condition3;
 ```
+### logical operators
 | logical operators | definition |
 |---|---|
 | = | equals to |
@@ -52,6 +53,7 @@ where column = "x" or column = "y" or column = "z";
 select * from table
 where column in (....);
 ```
+###  `order by`, `limit`, & `offset`
 the `order by` clause allows you to order results by one or more columns. you can substitute numbers for column names in the `order by` clause. the number correspond to the columns you specified in the `select` clause. 
 ```sql
 select column1, column2
@@ -67,6 +69,7 @@ offset 10 -- skips the first 10, so starting on the 11th row
 limit 5; -- fetches the next 5 rows
 ```
 ## beginner
+### `group by`
 to aggregate means to collect, to gather into a mass or whole.  
 the `group by` command tells the database to separate the data into groups, which can then be aggregated independently. the syntax is the same as `order by`. while `order by` is not used to get rid of duplicates, it does allow you to collapse multiple rows with the same values into a single row. 
 ```sql
@@ -76,6 +79,7 @@ round(avg(column2), 2) as avg_column2
 from table
 group by column1, date;
 ```
+### aggregate functions
 |aggregate functions | definitions |
 |---|---|
 |`sum`| adds all the values in a column|
@@ -91,6 +95,7 @@ you can use `distinct` with aggregate functions.
 select count(distinct column1)
 from table;
 ```
+### arithmetic operators
 you can transform raw values with math expressions  
 |arithmetic operators | definitions|
 |---|---|
@@ -100,7 +105,7 @@ you can transform raw values with math expressions
 |`/`| divides the first number by the second as integer division|
 |`%`| returns the remainder after division of the numbers|
 |`^`| exponent|
-
+### mathematical functions
 |mathematical functions| definitions|
 |---|---|
 |`abs()`| absolute value of a number|
@@ -109,7 +114,7 @@ you can transform raw values with math expressions
 |`floor()`| rounds a number down|
 |`power()`| raises a number to a specified power|
 |`mod()`| same as `%`|
-
+### sql division
 `/` discards the remainder from the output
 
 

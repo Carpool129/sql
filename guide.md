@@ -115,8 +115,44 @@ you can transform raw values with math expressions
 |`power()`| raises a number to a specified power|
 |`mod()`| same as `%`|
 ### sql division
-`/` discards the remainder from the output
-
-
-
-
+`/` discards the remainder from the output. to return float output, you can use these methods:
+* `cast()` function
+    * the `cast()` function converts one or both operands into float
+    * ``` sql
+      select
+      cast(10 as float)/4,
+      10/cast(4 as float);
+      ```
+* multiply by 1.0
+  * by mulitplying one of the operands by 1.0, you transform it into a float. 
+* being explicit about types using `::`
+  * very similar to cast
+  * ``` sql
+    select 10::float/4,
+    10/4::float;
+    ```
+to round the decimal to a specified number of decimal places, you can use the `round()` function, which has a second parameter that does the specification. 
+``` sql
+select round(x. n) as y -- rounds x to the nth decimal place
+from table;
+```
+## intermediate
+### null
+null means the absence of a value or missing information. in sql, null values are the smallest (useful when sorting).
+to identify null values or not null values, you can use `is null` or `is not null`
+``` sql
+select * from table
+where x is null; 
+```
+the `coalesce()` function returns non-null values. 
+``` sql
+coalesce(column_name, 'expression')
+-- if column_name is null, it returns the expression. otherwise, it returns the
+-- original value
+```
+the `ifnull()` function can fill in the gaps.
+``` sql
+ifnull(column_name, 'expression_value_if_null')
+```
+the difference between the `coalesce()` and `ifnull()` functions is that the `coalesce()` function can take multiple arguments and returns the first non-null value from the list of expressions. the `ifnull()` function is limited to 2 arguments. 
+### `case`

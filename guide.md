@@ -156,3 +156,23 @@ ifnull(column_name, 'expression_value_if_null')
 ```
 the difference between the `coalesce()` and `ifnull()` functions is that the `coalesce()` function can take multiple arguments and returns the first non-null value from the list of expressions. the `ifnull()` function is limited to 2 arguments. 
 ### `case`
+by using `case` with `select`, you can create new columns, categorize data, and perform calculations based on specified conditions. 
+``` sql
+select column1, column2,
+   case
+      when condition1 then result1
+      when condition2 then result2
+      else result3
+   end as column3 -- new column
+from table;
+```
+by using `case` with `where`, you can filter rows based on specified conditions
+``` sql
+select column1, column2
+from table
+where case
+   when condition1 then result1
+   when condition2 then result2
+   else result3
+end;
+```

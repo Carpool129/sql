@@ -166,7 +166,7 @@ select column1, column2,
    end as column3 -- new column
 from table;
 ```
-by using `case` with `where`, you can filter rows based on specified conditions
+by using `case` with `where`, you can filter rows based on specified conditions. with this method, you can filter based on finer criteria 
 ``` sql
 select column1, column2
 from table
@@ -175,4 +175,24 @@ where case
    when condition2 then result2
    else result3
 end;
+```
+by using `case` within a `count()`, you can count occurrences based on various conditions. 
+``` sql
+select column1,
+   count(case
+      when condition1 then 1
+      else null
+   end) as column2
+from table
+group by column1;
+```
+by using `case` within a `sum()`, you can add values based on various conditions. 
+```sql
+select column1,
+   sum(case
+      when condition1 then 1
+      else 0
+   end) as column2
+from table
+group by column1;
 ```

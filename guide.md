@@ -137,7 +137,7 @@ select round(x. n) as y -- rounds x to the nth decimal place
 from table;
 ```
 ## intermediate
-### null
+### `null`
 null means the absence of a value or missing information. in sql, null values are the smallest (useful when sorting).
 to identify null values or not null values, you can use `is null` or `is not null`
 ``` sql
@@ -195,4 +195,96 @@ select column1,
    end) as column2
 from table
 group by column1;
+```
+by using `case` within an `avg()` function, you can calculate averages based on specific conditions.
+```sql
+select column1,
+   avg(case
+      when condition1 then what_you_want_to_average
+      else null
+   end) as column2
+from table
+group by column1;
+```
+### joins
+in the real world, there are databases with many tables. to combine multiple tables and analyze their data simultaneously, you can use sql's joins. 
+```sql
+select * from table1
+join table2
+   on table1.column1 = table2.column1;
+-- you're joining two tables on a column that they both share.
+```
+|joins| definitions|
+|---|---|
+|`inner join` or 'join'| returns only rows with matching values from both tables|
+|`left join`| returns all rows from the left table with matching rows from the right table. if there is no matching data in the right table, the output will include the left table's data with null values in the columns from the right table|
+|`right join`| opposite of a left join|
+|`full outer join`| returns all rows when there is a match in either the left or right table. if there is no match, then null values are returned for those columns|
+
+you can do conditional joins by using the `on` to specify conditions. 
+``` sql
+select column1, column2
+from table1
+inner join table2
+   on table1.column1 = table2.column1
+      and/or condition1;
+```
+you can join multiple tables
+``` sql
+select column1, column2
+from table1 a
+join table2 b
+   on a.column3 = b.column3
+inner join table3 c
+   on b.column4 = c.column4;
+```
+### date & time functions
+|date & time functions| definitions|
+|---|---|
+|`current_date`, `current_time`| returns current date or time|
+|`current_timestamp`, `now()`| returns current date and time|
+|`extract()`, `date_part()`| extracts specific conponents of date|
+|`date_trunc()`| rounds down date or timestamp into specified level of precision|
+|`interval`| add or subtract time intervals in calculations|
+|`to_char()`| convert date or timestamp into strings with a specified format|
+|`::date`, `to_date()`, `::timestamp`, `to_timestamp()`| convert strings into date or timestamp|
+
+#### examples
+``` sql
+select
+   current_date as cd,
+   current_time as ct,
+   current_timestamp as cts
+from table;
+```
+``` sql
+select * from table,
+where current_timestamp > '2026-04-06 22:00:00';
+/* you can use comparison operators to get a date higher, lower, equal
+to another date. you can also use other functions like max or min */
+```
+``` sql
+select
+   extract(year from current_date) as current_year,
+   extract(month from current_date) as current_month,
+	date_part(day from current_date) as current_day,
+   date_part(hour from current_date) as current_hour
+from table;
+-- you can also extract minute and second
+```
+|format name| format|
+|---|---|
+|iso 8601 date & time| `yyyy-mm-dd hh24:mi:ss`|
+|date & time 12-hour| `yyyy-mm-dd hh:mi:ss am`|
+|long month name, day & year| `month ddth, yyyy`|
+|short month name, day & year| `mon dd, yyyy`|
+|day, month, & year| `dd month, yyyy`|
+|month| `month`|
+|day of the week| `day`|
+``` sql
+select
+   to_char(date, `yyyy-mm-dd hh:mi:ss am`) as formatted_12hr,
+   string_date::date as date,
+   to_timestamp(`string_timestamp`, `YYYY-MM-DD HH:MI:SS`) as timestamp
+from table;
 ```

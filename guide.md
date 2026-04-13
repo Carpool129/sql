@@ -288,3 +288,33 @@ select
    to_timestamp(`string_timestamp`, `YYYY-MM-DD HH:MI:SS`) as timestamp
 from table;
 ```
+### `substr()`
+you can search for the substring using:
+```sql
+substr(column_name, index, number_of characters)
+```
+index is the number where you start the substring. 1 would indicate the first character. -1 would indicate the last character. the number_of_characters is optional. if not included, the substring would contain the rest of the string. 
+## advanced
+### nested queries & CTEs
+ you can put a sql query inside another sql query
+ ``` sql
+select * from table
+where x = (select min(x) from table);
+/* you would have to do a nested query to accomplish this because you're comparing
+each row to a value that has to be computed first *\
+```
+CTEs, common table expressions, are created by using the `with` statement. CTEs are created at the beginning of a query, so the code is more readable. you can also reuse CTEs, and use them to perform recursive tasks. 
+``` sql
+-- start of cte
+with cte_name as (
+	select column1, column2
+	from table
+	group by 2
+)
+-- end of cte
+select c.column1, c.column2
+from cte_name as c
+inner join table as t
+	on c.column1 = t.column1
+where condition1;
+```

@@ -294,6 +294,23 @@ you can search for the substring using:
 substr(column_name, index, number_of characters)
 ```
 index is the number where you start the substring. 1 would indicate the first character. -1 would indicate the last character. the number_of_characters is optional. if not included, the substring would contain the rest of the string. 
+## altering tables
+### `insert`
+to insert data into a database, you would use the `insert` statement, which declares the table and columns you're adding to and one or more rows of data to add. 
+``` sql
+insert into table
+values (a, b, ...),
+	   (c, d, ...),
+	   ...;
+/* in some cases, you have incomplete data. you can insert that in only
+the columns of data you have by specifying them explicityly. in these cases,
+the number of values need to match the number of columns specified */
+insert into table
+(column1, column2, ...)
+values (w, x, ...),
+	   (y, z, ...),
+	   ...;
+```
 ## advanced
 ### nested queries & CTEs
  you can put a sql query inside another sql query

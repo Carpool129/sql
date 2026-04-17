@@ -302,14 +302,25 @@ insert into table
 values (a, b, ...),
 	   (c, d, ...),
 	   ...;
-/* in some cases, you have incomplete data. you can insert that in only
-the columns of data you have by specifying them explicityly. in these cases,
+/* in some cases, you have incomplete data. you can insert that in only the
+columns of data you have by specifying them explicityly. in these cases,
 the number of values need to match the number of columns specified */
 insert into table
 (column1, column2, ...)
 values (w, x, ...),
 	   (y, z, ...),
 	   ...;
+```
+### `update`
+by using `update`, you can update existing data. you also have to specify which table, columns, and rows to update. the data you are updating has to match the data type of the columns.
+``` sql
+update table
+set column1 = a,
+	column2 = b,
+	...
+where condition;
+/* the query takes the column and value pairs, and applies those changes to
+each and every row that satifies the condition */
 ```
 ## advanced
 ### nested queries & CTEs

@@ -322,6 +322,14 @@ where condition;
 /* the query takes the column and value pairs, and applies those changes to
 each and every row that satifies the condition */
 ```
+### `delete`
+by using `delete`, you can delete data from a table in the database after specifying the table and the rows of the table to delete.
+``` sql
+delete from table
+where condition;
+```
+### `create table`
+
 ## advanced
 ### nested queries & CTEs
  you can put a sql query inside another sql query

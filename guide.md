@@ -216,7 +216,7 @@ join table2
 ```
 |joins| definitions|
 |---|---|
-|`inner join` or 'join'| returns only rows with matching values from both tables|
+|`inner join` or `join`| returns only rows with matching values from both tables|
 |`left join`| returns all rows from the left table with matching rows from the right table. if there is no matching data in the right table, the output will include the left table's data with null values in the columns from the right table|
 |`right join`| opposite of a left join|
 |`full outer join`| returns all rows when there is a match in either the left or right table. if there is no match, then null values are returned for those columns|
@@ -329,6 +329,34 @@ delete from table
 where condition;
 ```
 ### `create table`
+a structure of a table is defined by its columns, and each column has a name, type of data allowed in that column, table constraint on values being inserted (optional), and default value (optional).
+to create a new table, use `create statement`. 
+``` sql
+create table if not exists table1 (
+	column data_type table_constraint default default_value,
+	column1 data_type1 table_constraint` default default_value1,
+	...
+);
+/* the if not exists clause is there to prevent any error if there is an
+existing table with the same name */
+```
+| data type | definition |
+|---|---|
+|interger| stores whole integer values|
+|boolean| usually represented by 0 or 1|
+|float, double, real| stores more precise numerical data like decimals. different types are used depending on the precision needed|
+|character, varchar, text| stores strings and text. the character and varchar are specified by max number of characters that they can store|
+|date, datetime| stores date and timestamps|
+|blob| stores binary data in blobs|
+
+|table constraints| definition|
+|---|---|
+|primary key| the values of this column are unique. therefore, each value can be used to identify a single row in the table|
+|autoincrement| for integer values. the value is automatically filled in and incremented with each row insertion|
+|unique| the values in this column are unique. differs from the primary key in that it doesn't have to be a key for a row in the table|
+|not null| the values in this column cannot be null|
+|check(...)| allows you to test if the values inserted are valid with a condition|
+|foreign key| consistency check to ensure that each value in this column corresponds to another value in a column in another table|
 
 ## advanced
 ### nested queries & CTEs

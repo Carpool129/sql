@@ -334,7 +334,7 @@ to create a new table, use `create statement`.
 ``` sql
 create table if not exists table1 (
 	column data_type table_constraint default default_value,
-	column1 data_type1 table_constraint` default default_value1,
+	column1 data_type1 table_constraint default default_value1,
 	...
 );
 /* the if not exists clause is there to prevent any error if there is an

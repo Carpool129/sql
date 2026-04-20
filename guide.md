@@ -294,7 +294,7 @@ you can search for the substring using:
 substr(column_name, index, number_of characters)
 ```
 index is the number where you start the substring. 1 would indicate the first character. -1 would indicate the last character. the number_of_characters is optional. if not included, the substring would contain the rest of the string. 
-## altering tables
+## modifying tables
 ### `insert`
 to insert data into a database, you would use the `insert` statement, which declares the table and columns you're adding to and one or more rows of data to add. 
 ``` sql
@@ -357,10 +357,33 @@ existing table with the same name */
 |not null| the values in this column cannot be null|
 |check(...)| allows you to test if the values inserted are valid with a condition|
 |foreign key| consistency check to ensure that each value in this column corresponds to another value in a column in another table|
-
+### `alter table`
+by using `alter table`, you can add, remove, or modify columns and table constraints. 
+``` sql
+-- adding columns
+alter table table_name
+add column data_type optional_table_constraint
+	default default_value;
+/* in some versions of sql, you can specify where to insert the new column
+using first or after*/
+-- removing columns
+alter table table_name
+drop column;
+/* this isn't supported by all versions. so instead, you would have to create
+a new table and transfer the data*/
+-- renaming the table
+alter table table_name
+rename to new_table_name;
+```
+### dropping table
+by using `drop table`, you are removing an entire table. this is different from `delete` because it removes the table schema from the database entirely. 
+``` sql
+drop table if exists table_name;
+```
+if you have a table that is dependent on columns in the table that is being removed (like foreign key dependency), you would have to update the dependent tables to remove the dependent rows or remove those tables as well. 
 ## advanced
-### nested queries & CTEs
- you can put a sql query inside another sql query
+### nested queries/subqueries & CTEs
+ you can put a sql query inside another sql query. each subquery must be fully enclosed in parentheses. 
  ``` sql
 select * from table
 where x = (select min(x) from table);

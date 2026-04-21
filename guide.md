@@ -405,3 +405,14 @@ inner join table as t
 	on c.column1 = t.column1
 where condition1;
 ```
+### `union`, `intersect`, `except`
+`union` and `union all` allows you to append the results of one query to another assuming that they have the same column count, order, and data type. the difference between `union` and `union all` is that `union` gets rid of duplicate rows. 
+`intersect` ensures that only rows that are identical in both result sets are returned. `except` ensures that only rows in the first result set that aren't in the second are returned. both `intersect` and `except` discard duplicate rows. 
+```sql
+select column1, column2
+	from table1
+union/union all/intersect/except
+select column1, column2
+	from table2
+order by column1;
+```

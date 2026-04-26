@@ -1,3 +1,3 @@
 ## sources
-### for [guide]
-- https://sqlbolt.com/
+### for [guide](https://github.com/Carpool129/sql/blob/main/guide.md)
+- [SQLBolt](https://sqlbolt.com/)

@@ -1,6 +1,6 @@
 hi! this is my repository for all things sql related.
 
-### guide
+### [guide](https://github.com/Carpool129/sql/blob/main/guide.md)
 
 ### projects
 

@@ -88,7 +88,7 @@ group by column1, date;
 |`avg`| calculates the average of a column|
 |`count`| counts how many rows are in a column|  
 
-you cannot use aggregate functions in with `where`. instead, use `having` to filter data based on values from aggregate functions.  
+use `having` to filter data based on values from aggregate functions. that is because `where` filters row before aggregation, and `having` filters it afterwards.
 
 you can use `distinct` with aggregate functions. 
 ```sql

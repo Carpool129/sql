@@ -242,8 +242,8 @@ there is another way to accomplish what `inner join` does:
 ``` sql
 select column1, column2
 from table1, table2
-where condition1 and condition 2
-and table1.column3 = table2. column4;
+where condition1 and condition2
+and table1.column3 = table2.column4;
 ```
 the first version is more consistent with the other join types
 ### date & time functions

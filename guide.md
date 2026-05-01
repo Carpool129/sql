@@ -207,7 +207,7 @@ from table
 group by column1;
 ```
 ### joins
-in the real world, there are databases with many tables. to combine multiple tables and analyze their data simultaneously, you can use sql's joins. 
+in the real world, there are databases with many tables. to combine multiple tables and analyze their data simultaneously, you can use sql's joins. you can also join the same table to itself.
 ```sql
 select * from table1
 join table2

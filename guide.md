@@ -396,7 +396,13 @@ if you have a table that is dependent on columns in the table that is being remo
 select * from table
 where x = (select min(x) from table);
 /* you would have to do a nested query to accomplish this because you're comparing
-each row to a value that has to be computed first *\
+each row to a value that has to be computed first
+this is also called a scalar subquery because it returns a single value*\
+```
+``` sql
+select * from table
+where x in (select column1 from table where condition1);
+/* this is called a list subquery */
 ```
 CTEs, common table expressions, are created by using the `with` statement. CTEs are created at the beginning of a query, so the code is more readable. you can also reuse CTEs, and use them to perform recursive tasks. 
 ``` sql

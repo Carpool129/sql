@@ -296,6 +296,12 @@ select
    to_timestamp(`string_timestamp`, `YYYY-MM-DD HH:MI:SS`) as timestamp
 from table;
 ```
+### concatenate strings
+to concatenate strings, use `||`
+``` sql
+select column1 || ' ' || column2 as column3
+from table;
+```
 ### `substr()`
 you can search for the substring using:
 ```sql
